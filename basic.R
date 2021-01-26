@@ -19,12 +19,11 @@ data <- data.frame(x = x,
                    y = f(x))          
 
 # CREATE CHART #####
-chart <- ggplot(data, aes(x, y)) +
-  geom_line(color = "red") +
-  geom_hline(yintercept = 0) +
-  geom_vline(xintercept = 0) +
-  theme_bw() + 
-  labs(title = paste0(gsub("\\{|\\}", "", body(f)), collapse = " "))
-
-# SHOW ME THE CHART ####
-print(chart)
+print(
+  ggplot(data, aes(x, y)) +
+    geom_line(color = "red") +
+    geom_hline(yintercept = 0) +
+    geom_vline(xintercept = 0) +
+    theme_bw() + 
+    labs(title = paste0(gsub("\\{|\\}", "", body(f)), collapse = " "))
+)
